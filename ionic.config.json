@@ -1,0 +1,7 @@
+{
+  "name": "wiredbrain",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
