@@ -18,7 +18,8 @@ export class RewardServiceProvider {
   constructor (
     private storage: Storage,
     public modalCtrl: ModalController
-    ) {
+    ) 
+  {
     console.log('Hello RewardServiceProvider Provider');
   }
 

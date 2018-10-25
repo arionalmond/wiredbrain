@@ -23,8 +23,8 @@ export class RewardModalPage {
   constructor (
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public viewCtrl: ViewController
-    ) {
+    public viewCtrl: ViewController ) 
+  {
       this.displayparam = navParams.get('rewardParam');
   }
 
