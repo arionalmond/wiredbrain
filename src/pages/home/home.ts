@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -11,7 +11,7 @@ import { UserServiceProvider } from '../../providers/user-service/user-service';
   templateUrl: 'home.html'
 })
 
-export class HomePage {
+export class HomePage implements OnInit{
 
   menuData = [
     { title: 'Our Menu', pic:'assets/imgs/soup1.jpg', pushPage: 'MenuPage'},
@@ -23,16 +23,22 @@ export class HomePage {
   logPage: any
   loggedIn: any;
   
-  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth,
-              public userService: UserServiceProvider) 
-  {
+  constructor(
+    public navCtrl: NavController, 
+    private afAuth: AngularFireAuth,
+    public userService: UserServiceProvider ) 
+  { 
+
+  }
+
+  ngOnInit(){
 
     this.logPage = 'LoginPage';
 
     this.afAuth.auth.onAuthStateChanged ( user => {
 
       if(user) {
-        this.loggedIn = user.email;
+        this.loggedIn = this.userService.user = user.email;
       }
     })
   }
