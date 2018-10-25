@@ -14,19 +14,19 @@ import { UserServiceProvider } from '../../providers/user-service/user-service';
   selector: 'page-account',
   templateUrl: 'account.html',
 })
-export class AccountPage implements OnInit{
+export class AccountPage implements OnInit {
 
   accountUser: string;
   userInfo: any[] = [];
   rewardInfo: any[] = [];
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     private userService: UserServiceProvider) {
   }
 
-  ionViewCanEnter(): boolean{
+  ionViewCanEnter(): boolean {
     return this.userService.success;
   }
 
