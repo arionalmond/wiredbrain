@@ -21,7 +21,11 @@ export class UserServiceProvider {
 
   items: FirebaseListObservable<any>;
 
+  // not set to false to start the app
+  // i think causing the account page to fail until
+  // a log off occurs
   success:boolean;
+  
   user: string;
 
   constructor

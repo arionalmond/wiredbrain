@@ -16,27 +16,29 @@ import { UserServiceProvider } from '../../providers/user-service/user-service';
 })
 export class AccountPage implements OnInit {
 
-  accountUser: string;
+  accountUser: string;  
   userInfo: any[] = [];
   rewardInfo: any[] = [];
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private userService: UserServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private userService: UserServiceProvider) {
   }
 
-  ionViewCanEnter(): boolean {
-    return this.userService.success;
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AccountPage');
   }
+
+  ionViewCanEnter(): boolean{
+    return this.userService.success;
+  } 
 
   ngOnInit() {
     this.accountUser = this.userService.user;
-    this.userService.storageControl('get', this.accountUser)
-      .then(userData => this.userInfo = userData);
+    
+    this.userService.storageControl('get',this.accountUser )
+    .then(userData => this.userInfo = userData);
 
-    this.userService.storageControl('get', `${this.accountUser}-rewards`)
-      .then(rewardData => this.rewardInfo = rewardData);
+    this.userService.storageControl('get',`${this.accountUser}-rewards`)
+    .then(rewardData => this.rewardInfo = rewardData);
   }
-
 }

@@ -10,9 +10,9 @@
     <img src="assets/imgs/wired-brain-coffee-logo.png" class="logo">
   </ion-toolbar>
 
-  <ion-nav-bar color="secondary">
+  <ion-navbar color="secondary">
     <ion-title>Account Information</ion-title>
-  </ion-nav-bar>
+  </ion-navbar>
 
 </ion-header>
 
@@ -39,8 +39,7 @@
 
     <ion-item>
       <ion-icon name="cafe" item-start></ion-icon>
-      Rewards Earned:
-      <ion-badge color="secondary"> {{userInfo.rewardCount}} </ion-badge>
+      Rewards Earned: <ion-badge color="secondary"> {{userInfo.rewardCount}} </ion-badge>
     </ion-item>
 
   </ion-list>
@@ -55,6 +54,7 @@
     <ion-item *ngFor="let reward of rewardInfo" class="myRewards">
       {{reward.amount | currency:'USD':true}} off your order
     </ion-item>
+    
   </ion-list>
 
 
