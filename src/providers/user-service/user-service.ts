@@ -16,11 +16,13 @@ import { RewardServiceProvider } from '../reward-service/reward-service';
   and Angular DI.
 */
 @Injectable()
+
 export class UserServiceProvider {
 
   items: FirebaseListObservable<any>;
 
   success:boolean;
+  user: string;
 
   constructor
     (
@@ -47,7 +49,10 @@ export class UserServiceProvider {
   logOut(){
     //this.storageControl('delete');
     this.afAuth.auth.signOut()
-      .then(loggedOut => this.displayAlert('Logged out', 'Come back and visit soon'))
+      .then(loggedOut => {
+        this.displayAlert('Logged out', 'Come back and visit soon')
+        this.success = false;
+      })
       .catch(err => this.displayAlert('Error logging out',err));
   }
 

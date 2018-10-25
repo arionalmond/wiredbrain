@@ -40,12 +40,22 @@ export class HomePage implements OnInit{
       if(user) {
         this.loggedIn = this.userService.user = user.email;
       }
+      
     })
   }
 
   signOff(){
     this.userService.logOut();
     this.loggedIn = '';
+  }
+
+  myPagePush(page) {
+    this.navCtrl.push(page)
+      .then(result => {
+        if(!result) {
+          this.userService.displayAlert('Sorry', 'You must first register an account');
+        }
+      })
   }
 
 }
